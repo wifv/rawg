@@ -32,6 +32,8 @@ body {
   gap: 25px;
   position: sticky;
   top: 0;
+
+  transition: all 0.67s;
 }
 
 .sidebar * {
@@ -425,4 +427,10 @@ body {
 	.block-container {
 		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 	}
+}
+
+.a {
+  display: none;
+  z-index: 2;
+  align-items: flex-end;
 }
