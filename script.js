@@ -88,6 +88,7 @@ top250Element.addEventListener("click", () => {
 
 calendarElement.addEventListener("click", () => {
   monthsElement.style.display = "flex";
+  monthly("00")
 });
 
 input.addEventListener("keyup", (key) => {
@@ -216,6 +217,8 @@ searchIconBlack.addEventListener("click", () => {
 });
 
 async function home() {
+	monthsElement.style.display = "none";
+
   loader[1].style.display = "block";
   let lastYear = days(365, "-");
 
@@ -225,11 +228,12 @@ async function home() {
   const data = await response.json();
   if (data) loader[1].style.display = "none";
   console.log("home");
-  console.log(data);
   repeatingLoop(data);
 }
 
 async function lastMonth() {
+	monthsElement.style.display = "none";
+
   let lastMonth = days(31, "-");
   loader[1].style.display = "block";
 
@@ -240,11 +244,12 @@ async function lastMonth() {
   if (data) loader[1].style.display = "none";
 
   console.log("last month");
-  console.log(data);
   repeatingLoop(data);
 }
 
 async function lastWeek() {
+	monthsElement.style.display = "none";
+
   let lastWeek = days(7, "-");
 
   const response = await fetch(
@@ -253,41 +258,26 @@ async function lastWeek() {
   const data = await response.json();
   if (data) loader[1].style.display = "none";
   console.log("last week");
-  console.log(data);
   repeatingLoop(data);
 }
 
 async function nextWeek() {
+	monthsElement.style.display = "none";
+
   loader[1].style.display = "block";
   let nextWeek = days(7, "+");
-  console.log(`next week:::${nextWeek}`);
 
   const response = await fetch(
     `${basicUrl}?key=${key}&dates=${date},${nextWeek}&fields=announced,unanounced`
   );
   const data = await response.json();
   if (data) loader[1].style.display = "none";
-  console.log(data);
-  repeatingLoop(data);
-}
-
-async function monthly(month) {
-  loader[1].style.display = "block";
-  let date1 = handleMonths(month);
-  let date2 = handleMonths(month + 1);
-  let month2 = month + 1;
-  console.log(month2);
-  const response = await fetch(
-    `${basicUrl}?key=${key}&dates=${date1},${date2}&page=1&ordering=-release`
-  );
-  const data = await response.json();
-  if (data) loader[1].style.display = "none";
-
-  console.log(data);
   repeatingLoop(data);
 }
 
 async function bestOfYear() {
+	monthsElement.style.display = "none";
+
   let date1 = new Date();
   let date2 = new Date();
   loader[1].style.display = "block";
@@ -296,7 +286,6 @@ async function bestOfYear() {
   date2.setDate("01");
   date2 = date2.toISOString().split("T")[0];
   date1 = handleMonths("00");
-  console.log(date2);
 
   const response = await fetch(
     `${basicUrl}?key=${key}&dates=${date1},${date2}&page=1&ordering=-rating,-metacritic`
@@ -304,11 +293,12 @@ async function bestOfYear() {
   const data = await response.json();
   if (data) loader[1].style.display = "none";
 
-  console.log(data);
   repeatingLoop(data);
 }
 
 async function bestOfLastYear() {
+	monthsElement.style.display = "none";
+
   let date1 = new Date();
   let date2 = new Date();
   date1.setFullYear(date1.getFullYear() - 1);
@@ -325,11 +315,12 @@ async function bestOfLastYear() {
   );
   const data = await response.json();
   if (data) loader[1].style.display = "none";
-  console.log(data);
   repeatingLoop(data);
 }
 
 async function top250() {
+	monthsElement.style.display = "none";
+
   loader[1].style.display = "block";
 
   const response = await fetch(
@@ -337,7 +328,6 @@ async function top250() {
   );
   const data = await response.json();
   if (data) loader[1].style.display = "none";
-  console.log(data);
   repeatingLoop(data);
 }
 
@@ -346,11 +336,31 @@ function handleMonths(month) {
   
   s.setMonth(month);
   s.setDate(1);
-  clickedCategory = `Released in ${s.getMonth()}`;
+  clickedCategory = `Best of the year`;
   s = s.toISOString().split("T")[0];
   console.log(s);
   return s;
 }
+
+async function monthly(month) {
+	loader[1].style.display = "block";
+	let date1 = handleMonths(month);
+	let date2 = handleMonths(month + 1)
+	console.log(date1)
+	console.log(date2)
+	const response = await fetch(`${basicUrl}?key=${key}&dates=${date1},${date2}&page=${page}&ordering=-release`);
+	const data = await response.json();
+	if (data) loader[1].style.display = "none";
+	console.log(data);
+	repeatingLoop(data);
+}
+
+for(let i = 0; i < 12; i++) {
+	months[i].addEventListener("click", () => {
+		monthly(months[i].value)
+	})
+}
+
 
 function repeatingLoop(data) {
   loader[1].style.display = "none";
