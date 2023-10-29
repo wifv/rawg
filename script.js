@@ -217,7 +217,6 @@ async function home() {
   );
   const data = await response.json();
   if (data) loader[1].style.display = "none";
-  console.log("home");
   repeatingLoop(data);
 }
 
@@ -233,7 +232,6 @@ async function lastMonth() {
   const data = await response.json();
   if (data) loader[1].style.display = "none";
 
-  console.log("last month");
   repeatingLoop(data);
 }
 
@@ -247,7 +245,6 @@ async function lastWeek() {
   );
   const data = await response.json();
   if (data) loader[1].style.display = "none";
-  console.log("last week");
   repeatingLoop(data);
 }
 
@@ -328,7 +325,6 @@ function handleMonths(month) {
   s.setDate(1);
   clickedCategory = `Best of the year`;
   s = s.toISOString().split("T")[0];
-  console.log(s);
   return s;
 }
 
@@ -336,12 +332,9 @@ async function monthly(month) {
 	loader[1].style.display = "block";
 	let date1 = handleMonths(month);
 	let date2 = handleMonths(month + 1)
-	console.log(date1)
-	console.log(date2)
 	const response = await fetch(`${basicUrl}?key=${key}&dates=${date1},${date2}&page=${page}&ordering=-release`);
 	const data = await response.json();
 	if (data) loader[1].style.display = "none";
-	console.log(data);
 	repeatingLoop(data);
 }
 
@@ -365,8 +358,6 @@ function repeatingLoop(data) {
     blocks[i].children[1].firstElementChild.innerText = data.results[i].name;
   }
   let a = document.getElementsByClassName("block");
-  console.log(a);
-  console.log(data);
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("mouseenter", () => {
       a[i].style.height = "calc(100% + 200px)";
@@ -415,7 +406,3 @@ async function search(searchValue) {
 }
 
 home();
-
-// lastMonth();
-
-// lastWeek();
