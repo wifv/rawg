@@ -32,8 +32,11 @@ body {
   gap: 25px;
   position: sticky;
   top: 0;
-
+  transform: translateX(-6px);
   transition: all 0.67s;
+
+  z-index: 3;
+  border-bottom-right-radius: 20px;
 }
 
 .sidebar * {
@@ -58,6 +61,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.sidebar-block-wrapper-2 {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+}
+
+#close-sidebar {
+	font-size: 40px;
+	width: fit-content;
+  cursor: pointer;
+  display: none;
 }
 
 #home {
@@ -400,6 +417,9 @@ body {
 	.sidebar {
 		display: none;
 	}
+  #close-sidebar {
+    display: block;
+  }
 	.main {
 		margin: 0;
 		bottom: -100px;
