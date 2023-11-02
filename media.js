@@ -13,4 +13,3 @@ menu.addEventListener("click", () => {
 closeSidebar.addEventListener("click", () => {
 	sidebar.style.display = "none"
 });
-  

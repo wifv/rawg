@@ -450,3 +450,12 @@ body {
 		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 	}
 }
+
+.month {
+  cursor: pointer;
+}
+
+.active {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #FFF;
+}
