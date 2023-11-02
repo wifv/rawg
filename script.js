@@ -1,14 +1,4 @@
-const exampleBlock = `
-<div class="block game-card">
-<img src="" alt="no image or bad connection">
-<div class="bottom">
-<p></p>
-<div class="plus">
-<h4>+</h4><h4>lol ne mogu</h4>
-</div>
-</div>
-</div>
-`;
+const exampleBlock = `<div class="block game-card"><img src="" alt="no image or bad connection"><div class="bottom"><p></p><div class="plus"><h4>+</h4><h4>lol ne mogu</h4></div></div></div>`;
 const key = "73d26e50a7cf40d7a5ce139d275e2bfc";
 const basicUrl = "https://api.rawg.io/api/games";
 const input = document.getElementById("search");
@@ -358,7 +348,7 @@ for(let i = 0; i < 12; i++) {
 function repeatingLoop(data) {
   loader[1].style.display = "none";
   blocksContainer.innerHTML = `
-  <h2 style="display: inline; position: absolute; top: -50px;">${clickedCategory}</h2>
+  <h2 style="display: inline; position: absolute; top: -30px;">${clickedCategory}</h2>
   `;
   for (let i = 0; i < data.results.length; i++) {
     blocksContainer.innerHTML = blocksContainer.innerHTML + exampleBlock;
