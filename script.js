@@ -360,8 +360,8 @@ function repeatingLoop(data) {
   let a = document.getElementsByClassName("block");
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("mouseenter", () => {
-      a[i].style.height = "calc(100% + 200px)";
-      a[i].style.zIndex = 1;
+      a[i].style.height = "calc(100% + 100px)";
+      a[i].style.zIndex = 3;
       a[i].style.scale = 1.05;
     });
     a[i].addEventListener("mouseleave", () => {

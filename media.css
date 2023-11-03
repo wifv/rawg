@@ -1,0 +1,40 @@
+@media (max-width: 1009px) {
+    .sidebar {
+        display: none;
+        padding-right: 0;
+        left: 100%;
+	}
+  #close-sidebar {
+    display: block;
+  }
+	.main {
+		margin: 0;
+		bottom: -70px;
+	}
+  .menu {
+    display: block;
+  }
+}
+@media (max-width: 410px) {
+	.container-2 {
+		margin: 2%;
+	}
+    .sidebar {
+        margin-left: 12px;
+    }
+}
+@media (max-width: 460px) {
+	.input::placeholder {
+		width: 47px;
+	}
+}
+@media (max-width: 307px) {
+	.input::placeholder {
+		width: 0;
+	}
+}
+@media (max-width: 354px) {
+	.block-container {
+		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	}
+}

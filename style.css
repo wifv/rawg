@@ -261,7 +261,7 @@ body {
   top: 60px;
   left: 0;
   z-index: 10;
-  width: 96%;
+  width: 100%;
   max-height: 50vh;
   padding: 20px 20px;
   border-radius: 20px;
@@ -414,42 +414,6 @@ body {
   margin-left: 10px;
   display: none;
 }
-  
-@media (max-width: 1009px) {
-	.sidebar {
-		display: none;
-	}
-  #close-sidebar {
-    display: block;
-  }
-	.main {
-		margin: 0;
-		bottom: -70px;
-	}
-  .menu {
-    display: block;
-  }
-}
-@media (max-width: 410px) {
-	.container-2 {
-		margin: 2%;
-	}
-}
-@media (max-width: 460px) {
-	.input::placeholder {
-		width: 47px;
-	}
-}
-@media (max-width: 307px) {
-	.input::placeholder {
-		width: 0;
-	}
-}
-@media (max-width: 354px) {
-	.block-container {
-		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-	}
-}
 
 .month {
   cursor: pointer;
@@ -458,4 +422,15 @@ body {
 .active {
   padding-bottom: 5px;
   border-bottom: 2px solid #FFF;
+}
+
+#loader-search {
+  bottom: 5px;
+  max-width: 30px;
+  max-height: 30px;
+}
+#loader-search::after,
+#loader-search::before {
+  max-width: 25px;
+  max-height: 25px;
 }
