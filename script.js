@@ -1,4 +1,18 @@
-const exampleBlock = `<div class="block game-card"><img src="" alt="no image or bad connection"><div class="bottom"><p></p><div class="plus"><h4>+</h4><h4>lol ne mogu</h4></div></div></div>`;
+const exampleBlock = `
+<div class="block game-card">
+	<img src="" alt="no image or bad connection">
+	<div class="bottom">
+		<p></p>
+		<div class="plus">
+			<h4>+</h4>
+			<h4>lol ne mogu</h4>
+		</div>
+	</div>
+	<div class="active-block">
+    <h4></h4>
+    <h4></h4>
+	</div>
+</div>`;
 const key = "73d26e50a7cf40d7a5ce139d275e2bfc";
 const basicUrl = "https://api.rawg.io/api/games";
 const input = document.getElementById("search");
@@ -346,28 +360,58 @@ for(let i = 0; i < 12; i++) {
 
 
 function repeatingLoop(data) {
+	console.log(data)
   loader[1].style.display = "none";
   blocksContainer.innerHTML = `
   <h2 style="display: inline; position: absolute; top: -30px;">${clickedCategory}</h2>
   `;
+  let count = 1;
   for (let i = 0; i < data.results.length; i++) {
     blocksContainer.innerHTML = blocksContainer.innerHTML + exampleBlock;
-  }
-  for (let i = 0; i < data.results.length; i++) {
     blocks[i].firstElementChild.src = data.results[i].background_image;
     blocks[i].children[1].firstElementChild.innerText = data.results[i].name;
-  }
-  let a = document.getElementsByClassName("block");
-  for (let i = 0; i < a.length; i++) {
-    a[i].addEventListener("mouseenter", () => {
-      a[i].style.height = "calc(100% + 100px)";
-      a[i].style.zIndex = 3;
-      a[i].style.scale = 1.05;
-    });
-    a[i].addEventListener("mouseleave", () => {
-      a[i].style.height = "auto";
-      a[i].style.zIndex = 0;
-      a[i].style.scale = 1;
+	
+    let genres = [];
+    if(count < 2) {
+      count++
+      for(let j = 0; j < data.results[i].genres.length; j++) {
+        genres.push(data.results[i].genres[j].name);
+        console.log(data.results[i].genres[j].name);
+        console.log(j)
+      }
+    }
+	  blocks[i].lastElementChild.firstElementChild.innerText = "Release date: " + data.results[i].released;
+	  blocks[i].lastElementChild.children[1].innerText = `Genres: ${genres}`;
+}
+`
+<div class="block game-card">
+	<img src="" alt="no image or bad connection">
+	<div class="bottom">
+		<p></p>
+		<div class="plus">
+			<h4>+</h4>
+			<h4>lol ne mogu</h4>
+		</div>
+	</div>
+	<div class="active-block">
+    <h4></h4>
+    <h4></h4>
+	</div>
+</div>`;
+
+let a = document.getElementsByClassName("block");
+for (let i = 0; i < a.length; i++) {
+	a[i].addEventListener("mouseenter", () => {
+		a[i].lastElementChild.style.display = "block"
+    // a[i].style.height = "calc(100% + 100px)";
+    // a[i].style.zIndex = 3;
+    // a[i].style.scale = 1.05;
+  });
+  a[i].addEventListener("mouseleave", () => {
+    a[i].lastElementChild.style.display = "none"
+    // a[i].style.height = "auto";
+      // a[i].style.zIndex = 0;
+      // a[i].style.scale = 1;
     });
   }
 }
