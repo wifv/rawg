@@ -1,12 +1,18 @@
 @media (max-width: 1009px) {
     .sidebar {
-        display: none;
+		padding-left: 20px;
+		right: 10px;
+		top: 0;
         padding-right: 0;
-        left: 100%;
+		
+
+		height: auto;
+		position: absolute;
+        display: none;
 	}
-  #close-sidebar {
-    display: block;
-  }
+ 	#close-sidebar {
+ 	  display: block;
+ 	}
 	.main {
 		margin: 0;
 		bottom: -70px;
@@ -36,5 +42,10 @@
 @media (max-width: 354px) {
 	.block-container {
 		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	}
+}
+@media (max-width: 2100px) {
+	.container-2 {
+		margin: 30px 20px 30px 20px;
 	}
 }

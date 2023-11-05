@@ -68,7 +68,7 @@ last30.addEventListener("click", () => {
 });
 this7.addEventListener("click", () => {
   clickedCategory = "Last Week";
-  lastWeek();
+  thisWeek();
 });
 next7.addEventListener("click", () => {
   clickedCategory = "Next Week";
@@ -239,23 +239,24 @@ async function lastMonth() {
 
   let lastMonth = days(31, "-");
   loader[1].style.display = "block";
-
+  
   const response = await fetch(
     `${basicUrl}?key=${key}&dates=${lastMonth},${date}&fields=released`
-  );
-  const data = await response.json();
-  if (data) loader[1].style.display = "none";
+    );
+    const data = await response.json();
+    if (data) loader[1].style.display = "none";
+    
+    repeatingLoop(data);
+  }
+  
+async function thisWeek() {
+  monthsElement.style.display = "none";
+  loader[1].style.display = "block";
 
-  repeatingLoop(data);
-}
-
-async function lastWeek() {
-	monthsElement.style.display = "none";
-
-  let lastWeek = days(7, "-");
+  let thisWeek = days(7, "-");
 
   const response = await fetch(
-    `${basicUrl}?key=${key}&dates=${lastWeek},${date}&fields=released`
+    `${basicUrl}?key=${key}&dates=${thisWeek},${date}&fields=released`
   );
   const data = await response.json();
   if (data) loader[1].style.display = "none";
@@ -372,49 +373,44 @@ function repeatingLoop(data) {
     blocks[i].children[1].firstElementChild.innerText = data.results[i].name;
 	
     let genres = [];
-    if(count < 2) {
-      count++
-      for(let j = 0; j < data.results[i].genres.length; j++) {
-        genres.push(data.results[i].genres[j].name);
-        console.log(data.results[i].genres[j].name);
-        console.log(j)
-      }
+    for(let j = 0; j < data.results[i].genres.length; j++) {
+      genres.push(data.results[i].genres[j].name);
     }
 	  blocks[i].lastElementChild.firstElementChild.innerText = "Release date: " + data.results[i].released;
 	  blocks[i].lastElementChild.children[1].innerText = `Genres: ${genres}`;
-}
-`
-<div class="block game-card">
-	<img src="" alt="no image or bad connection">
-	<div class="bottom">
-		<p></p>
-		<div class="plus">
-			<h4>+</h4>
-			<h4>lol ne mogu</h4>
-		</div>
-	</div>
-	<div class="active-block">
-    <h4></h4>
-    <h4></h4>
-	</div>
-</div>`;
+  }
 
-let a = document.getElementsByClassName("block");
-for (let i = 0; i < a.length; i++) {
-	a[i].addEventListener("mouseenter", () => {
-		a[i].lastElementChild.style.display = "block"
-    // a[i].style.height = "calc(100% + 100px)";
-    // a[i].style.zIndex = 3;
-    // a[i].style.scale = 1.05;
-  });
-  a[i].addEventListener("mouseleave", () => {
-    a[i].lastElementChild.style.display = "none"
-    // a[i].style.height = "auto";
-      // a[i].style.zIndex = 0;
-      // a[i].style.scale = 1;
+  let a = document.getElementsByClassName("block");
+  for (let i = 0; i < a.length; i++) {
+    a[i].addEventListener("mouseenter", () => {
+      a[i].style.zIndex = 4;
+      a[i].lastElementChild.style.zIndex = 4;
+      a[i].lastElementChild.style.display = "flex";
+      a[i].style.scale = 1.03;
+    });
+    a[i].addEventListener("mouseleave", () => {
+      a[i].lastElementChild.style.zIndex = 1;
+      a[i].style.zIndex = 1;
+      a[i].style.scale = 1;
+      a[i].lastElementChild.style.display = "none"
     });
   }
 }
+`
+<div class="block game-card">
+  <img src="" alt="no image or bad connection">
+  <div class="bottom">
+    <p></p>
+    <div class="plus">
+      <h4>+</h4>
+      <h4>lol ne mogu</h4>
+    </div>
+  </div>
+  <div class="active-block">
+    <h4></h4>
+    <h4></h4>
+  </div>
+</div>`;
 
 /** takes
  * @param {number} days amount of days

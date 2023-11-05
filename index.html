@@ -6,13 +6,13 @@
     <link rel="shortcut icon" href="images/shreck.jpg" type="image/x-icon" />
     <title>Tipo RAWG.IO</title>
 
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./media.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media.css" />
   </head>
   <body>
     <div class="container-2">
       <div class="navbar">
-        <div class="logo">RAWG</div>
+        <a href="./index.html" class="logo">RAWG</a>
 
         <div class="input-wrapper">
           <img src="./images/search.svg" alt="search icon" id="search-icon" />
@@ -71,18 +71,18 @@
         <div class="sidebar-block-wrapper media-class">
           <h1>New Releases</h1>
           <ul class="releases">
-            <a href="#" id="last-month" class="non-active">Last 30 days</a>
-            <a href="#" id="this-week" class="non-active">This week</a>
-            <a href="#" id="next-week" class="non-active">Next week</a>
-            <a href="#" id="calendar" class="non-active">Release calendar</a>
+            <li id="last-month" class="non-active">Last 30 days</li>
+            <li id="this-week" class="non-active">This week</li>
+            <li id="next-week" class="non-active">Next week</li>
+            <li id="calendar" class="non-active">Release calendar</li>
           </ul>
         </div>
         <div class="sidebar-block-wrapper media-class">
           <h1>Top</h1>
           <ul class="top">
-              <a href="#" id="best-of-year" class="non-active">Best of the year</a>
-              <a href="#" id="best-of-last-year" class="non-active">Popular in 2023</a>
-              <a href="#" id="top-250" class="non-active">All time top 250</a>
+            <li id="best-of-year" class="non-active">Best of the year</li>
+            <li id="best-of-last-year" class="non-active">Popular in 2023</li>
+            <li id="top-250" class="non-active">All time top 250</li>
           </ul>
         </div>
       </section>
@@ -91,7 +91,7 @@
         <span class="loader"></span>
 
         <ul id="months">
-            <li class="month non-active" value="00">Jan</li>
+            <li class="month non-active" value="00" id="jan">Jan</li>
             <li class="month non-active" value="01">Feb</li>
             <li class="month non-active" value="02">Mar</li>
             <li class="month non-active" value="03">Apr</li>
@@ -111,8 +111,8 @@
       </main>
     </div>
 
-    <script src="./script.js"></script>
-    <script src="./active.js"></script>
-    <script src="./media.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/active.js"></script>
+    <script src="./js/media.js"></script>
   </body>
 </html>
