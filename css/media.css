@@ -1,12 +1,13 @@
 @media (max-width: 1009px) {
     .sidebar {
-		padding-left: 20px;
-		right: 10px;
-		top: 0;
-        padding-right: 0;
-		
+		padding: 20px;
+		right: 5px;
+		top: 10px;
+		color: black;
+		background-color: white;
 
 		height: auto;
+		width: auto;
 		position: absolute;
         display: none;
 	}
@@ -17,9 +18,12 @@
 		margin: 0;
 		bottom: -70px;
 	}
-  .menu {
-    display: block;
-  }
+  	.menu {
+  	  display: block;
+  	}
+	.display-options-wrapper {
+		display: none;
+	}
 }
 @media (max-width: 410px) {
 	.container-2 {

@@ -231,7 +231,6 @@ async function home() {
     `${basicUrl}?key=${key}&dates=${lastYear},${date}&fields=announced,unannounced&ordering=-released-rating&page=${page}`
   );
   const data = await response.json();
-  if (data) loader[1].style.display = "none";
   repeatingLoop(data);
 }
 
@@ -245,10 +244,8 @@ async function lastMonth() {
     `${basicUrl}?key=${key}&dates=${lastMonth},${date}&fields=released`
     );
     const data = await response.json();
-    if (data) loader[1].style.display = "none";
-    
     repeatingLoop(data);
-  }
+}
   
 async function thisWeek() {
   monthsElement.style.display = "none";
@@ -260,7 +257,6 @@ async function thisWeek() {
     `${basicUrl}?key=${key}&dates=${thisWeek},${date}&fields=released`
   );
   const data = await response.json();
-  if (data) loader[1].style.display = "none";
   repeatingLoop(data);
 }
 
@@ -274,7 +270,6 @@ async function nextWeek() {
     `${basicUrl}?key=${key}&dates=${date},${nextWeek}&fields=announced,unanounced`
   );
   const data = await response.json();
-  if (data) loader[1].style.display = "none";
   repeatingLoop(data);
 }
 
@@ -294,7 +289,6 @@ async function bestOfYear() {
     `${basicUrl}?key=${key}&dates=${date1},${date2}&page=1&ordering=-rating,-metacritic`
   );
   const data = await response.json();
-  if (data) loader[1].style.display = "none";
 
   repeatingLoop(data);
 }
@@ -317,7 +311,6 @@ async function bestOfLastYear() {
     `${basicUrl}?key=${key}&dates=${date1},${date2}&page=1&ordering=-rating,-metacritic`
   );
   const data = await response.json();
-  if (data) loader[1].style.display = "none";
   repeatingLoop(data);
 }
 
@@ -330,7 +323,6 @@ async function top250() {
     `${basicUrl}?key=${key}&page=1&page-size=40&ordering=-rating,-metacritic`
   );
   const data = await response.json();
-  if (data) loader[1].style.display = "none";
   repeatingLoop(data);
 }
 
@@ -350,7 +342,6 @@ async function monthly(month) {
 	let date2 = handleMonths(month + 1)
 	const response = await fetch(`${basicUrl}?key=${key}&dates=${date1},${date2}&page=${page}&ordering=-release`);
 	const data = await response.json();
-	if (data) loader[1].style.display = "none";
 	repeatingLoop(data);
 }
 
