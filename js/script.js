@@ -4,13 +4,14 @@ const exampleBlock = `
 	<div class="bottom">
 		<p></p>
 		<div class="plus">
-			<h4>+</h4>
-			<h4>lol ne mogu</h4>
+			<h5>+</h5>
+			<h5>no data</h5>
 		</div>
 	</div>
 	<div class="active-block">
     <h4></h4>
     <h4></h4>
+    <div class="show-more-button">Show more like this</div>
 	</div>
 </div>`;
 const key = "73d26e50a7cf40d7a5ce139d275e2bfc";
@@ -385,13 +386,17 @@ function repeatingLoop(data) {
     a[i].addEventListener("mouseenter", () => {
       a[i].style.zIndex = 4;
       a[i].lastElementChild.style.zIndex = 4;
+      a[i].style.borderBottomLeftRadius = 0;
+      a[i].style.borderBottoьRightRadius = 0;
       a[i].lastElementChild.style.display = "flex";
       a[i].style.scale = 1.03;
     });
     a[i].addEventListener("mouseleave", () => {
-      a[i].lastElementChild.style.zIndex = 1;
       a[i].style.zIndex = 1;
+      a[i].lastElementChild.style.zIndex = 1;
       a[i].style.scale = 1;
+      a[i].style.borderBottomLeftRadius = "10px";
+      a[i].style.borderBottoьRightRadius = "10px";
       a[i].lastElementChild.style.display = "none"
     });
   }
