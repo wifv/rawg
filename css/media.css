@@ -1,4 +1,8 @@
 @media (max-width: 1009px) {
+	#category {
+		font-size: 40px !important;
+		transform: translateY(15px);
+	}
     .sidebar {
 		padding: 20px;
 		right: 5px;
