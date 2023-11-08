@@ -359,6 +359,7 @@ const m = document.getElementById('m');
 function repeatingLoop(data) {
   console.log(data);
   m.innerHTML = `<h2 id="category" style="display: inline; position: absolute; top: -30px; left: 4px; font-size: 80px">${clickedCategory}</h2>`;
+  blocksContainer.innerHTML = "";
   loader[1].style.display = "none";
   for (let i = 0; i < data.results.length; i++) {
     blocksContainer.innerHTML = blocksContainer.innerHTML + exampleBlock;
@@ -376,8 +377,8 @@ function repeatingLoop(data) {
   let a = document.getElementsByClassName("block");
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("mouseenter", () => {
-      a[i].style.zIndex = 4;
-      a[i].lastElementChild.style.zIndex = 4;
+      a[i].style.zIndex = 5;
+      a[i].lastElementChild.style.zIndex = 5;
       a[i].style.borderBottomLeftRadius = 0;
       a[i].style.borderBottoьRightRadius = 0;
       a[i].lastElementChild.style.display = "flex";
