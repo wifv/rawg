@@ -4,14 +4,17 @@ const exampleBlock = `
 	<div class="bottom">
 		<p></p>
 		<div class="plus">
-			<h5>+</h5>
+			<h5 class="plus-direct-child">+</h5>
 			<h5>no data</h5>
 		</div>
 	</div>
 	<div class="active-block">
     <h4></h4>
     <h4></h4>
-    <div class="show-more-button">Show more like this</div>
+    <div class="show-more-button">
+      Show more like this
+      <img src="./images/right.svg">
+    </div>
 	</div>
 </div>`;
 const key = "73d26e50a7cf40d7a5ce139d275e2bfc";
@@ -92,6 +95,7 @@ top250Element.addEventListener("click", () => {
 });
 
 calendarElement.addEventListener("click", () => {
+  clickedCategory = "Release calendar";
   monthsElement.style.display = "flex";
   monthly("00")
 });
@@ -331,7 +335,6 @@ function handleMonths(month) {
   
   s.setMonth(month);
   s.setDate(1);
-  clickedCategory = `Best of the year`;
   s = s.toISOString().split("T")[0];
   return s;
 }
@@ -351,14 +354,13 @@ for(let i = 0; i < 12; i++) {
 	})
 }
 
+const m = document.getElementById('m');
 
 function repeatingLoop(data) {
-	console.log(data)
+  console.log(data);
+  m.innerHTML = `<h2 id="category" style="display: inline; position: absolute; top: -30px; left: 4px; font-size: 80px">${clickedCategory}</h2>`;
+  blocksContainer.innerHTML = "";
   loader[1].style.display = "none";
-  blocksContainer.innerHTML = `
-  <h2 style="display: inline; position: absolute; top: -30px;">${clickedCategory}</h2>
-  `;
-  let count = 1;
   for (let i = 0; i < data.results.length; i++) {
     blocksContainer.innerHTML = blocksContainer.innerHTML + exampleBlock;
     blocks[i].firstElementChild.src = data.results[i].background_image;
@@ -375,8 +377,8 @@ function repeatingLoop(data) {
   let a = document.getElementsByClassName("block");
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("mouseenter", () => {
-      a[i].style.zIndex = 4;
-      a[i].lastElementChild.style.zIndex = 4;
+      a[i].style.zIndex = 5;
+      a[i].lastElementChild.style.zIndex = 5;
       a[i].style.borderBottomLeftRadius = 0;
       a[i].style.borderBottoьRightRadius = 0;
       a[i].lastElementChild.style.display = "flex";
@@ -392,21 +394,6 @@ function repeatingLoop(data) {
     });
   }
 }
-`
-<div class="block game-card">
-  <img src="" alt="no image or bad connection">
-  <div class="bottom">
-    <p></p>
-    <div class="plus">
-      <h4>+</h4>
-      <h4>lol ne mogu</h4>
-    </div>
-  </div>
-  <div class="active-block">
-    <h4></h4>
-    <h4></h4>
-  </div>
-</div>`;
 
 /** takes
  * @param {number} days amount of days

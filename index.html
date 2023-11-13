@@ -39,7 +39,7 @@
               <li class="dropdown_list_item">
                 <span class="additional_layer"></span
                 ><img
-                  src="images/i.webp"
+                  src="./images/menu.svg"
                   class="list_item_image"
                   alt="game_image"
                 />
@@ -48,7 +48,7 @@
               <li class="dropdown_list_item">
                 <span class="additional_layer"></span
                 ><img
-                  src="images/i.webp"
+                  src="./images/menu.svg"
                   class="list_item_image"
                   alt="game_image"
                 />
@@ -56,6 +56,20 @@
               </li>
             </ul>
           </div>
+        </div>
+
+        <div class="select-1">
+          ...
+          <ul class="select-2">
+            <li>Settings</li>
+            <li>How does RAWG feel?</li>
+            <li>Leaderboard</li>
+            <li>Discord</li>
+            <li>@rawgtheworld</li>
+            <li>@rawgthepictures</li>
+            <li>Get an API key</li>
+            <li>Sitemap</li>
+          </ul>
         </div>
 
         <img src="./images/menu.svg" alt="menu" class="menu" id="menu">
@@ -80,22 +94,23 @@
           <h1>Top</h1>
           <ul class="top">
             <li id="best-of-year" class="non-active">Best of the year</li>
-            <li id="best-of-last-year" class="non-active">Popular in 2023</li>
+            <li id="best-of-last-year" class="non-active">Popular in 2022</li>
             <li id="top-250" class="non-active">All time top 250</li>
           </ul>
         </div>
       </section>
 
-      <main class="main">
+      <main class="main" id="main-container">
+        <div id="m"></div>
         <span class="loader"></span>
 
-        <div class="display-options-wrapper">
+        <div class="display-options-wrapper" id="display-options-wrapper">
           <img class="display-options active-option" id="grid" src="./images/apps.svg" alt="scroll thing">
           <img class="display-options" id="flex" src="./images/apps-sort.svg" alt="grid">
         </div>
 
         <ul id="months">
-          <li class="month active" value="00" id="jan">Jan</li>
+          <li class="month non-active active" value="00" id="jan">Jan</li>
           <li class="month non-active" value="01">Feb</li>
           <li class="month non-active" value="02">Mar</li>
           <li class="month non-active" value="03">Apr</li>
@@ -115,8 +130,8 @@
       </main>
     </div>
 
-    <script src="./js/script.js"></script>
-    <script src="./js/active.js"></script>
-    <script src="./js/media.js"></script>
+    <script src="./js/script.js" async></script>
+    <script src="./js/active.js" async></script>
+    <script src="./js/media.js" async></script>
   </body>
 </html>
