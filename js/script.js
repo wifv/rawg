@@ -357,7 +357,6 @@ for(let i = 0; i < 12; i++) {
 const m = document.getElementById('m');
 
 function repeatingLoop(data) {
-  console.log(data);
   m.innerHTML = `<h2 id="category" style="display: inline; position: absolute; top: -30px; left: 4px; font-size: 80px">${clickedCategory}</h2>`;
   blocksContainer.innerHTML = "";
   loader[1].style.display = "none";
