@@ -379,7 +379,7 @@ function repeatingLoop(data) {
       a[i].style.zIndex = 5;
       a[i].lastElementChild.style.zIndex = 5;
       a[i].style.borderBottomLeftRadius = 0;
-      a[i].style.borderBottoьRightRadius = 0;
+      a[i].style.borderBottomRightRadius = 0;
       a[i].lastElementChild.style.display = "flex";
       a[i].style.scale = 1.03;
     });
@@ -388,7 +388,7 @@ function repeatingLoop(data) {
       a[i].lastElementChild.style.zIndex = 1;
       a[i].style.scale = 1;
       a[i].style.borderBottomLeftRadius = "10px";
-      a[i].style.borderBottoьRightRadius = "10px";
+      a[i].style.borderBottomRightRadius = "10px";
       a[i].lastElementChild.style.display = "none"
     });
   }
